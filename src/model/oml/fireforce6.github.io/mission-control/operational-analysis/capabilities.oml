@@ -45,4 +45,11 @@ description <https://fireforce6.github.io/mission-control/operational-analysis/c
         base:description "Integrate Fire Cloud telemetry for environment and drone data."
         mission:isRequiredBy objectives:O2
     ]
+
+    // --- Increment: Onboard AI Fire Detection - capability ---
+
+    instance C9 : mission:Capability [
+        base:description "Detect fire hotspots onboard using AI inference on MWIR imagery."
+        mission:isRequiredBy objectives:O5
+    ]
 }

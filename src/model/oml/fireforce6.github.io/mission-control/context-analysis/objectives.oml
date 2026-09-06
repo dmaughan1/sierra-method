@@ -35,4 +35,12 @@ description <https://fireforce6.github.io/mission-control/context-analysis/objec
         mission:isDerivedFrom concerns:SafetyOfficerNeeds
         mission:isDerivedFrom concerns:CommandCenterNeeds
     ]
+
+    // --- Increment: Onboard AI Fire Detection - objective ---
+
+    instance O5 : mission:Objective [
+        base:description "Provide Autonomous Onboard Fire Detection."
+        mission:isPursuedBy missions:MissionControl
+        mission:isDerivedFrom concerns:OnboardAutonomyNeeds
+    ]
 }

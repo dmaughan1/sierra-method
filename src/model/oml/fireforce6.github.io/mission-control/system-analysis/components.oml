@@ -883,6 +883,38 @@ description <https://fireforce6.github.io/mission-control/system-analysis/compon
         base:isContainedBy GPSReceiver
     ]
 
+    // --- Increment: Onboard AI Fire Detection Unit (new branch under ElectronicsSegment) ---
+
+    instance FireDetectionUnit : component:Component [
+        base:description "Onboard AI Fire Detection Unit"
+        base:isContainedBy ElectronicsSegment
+    ]
+
+    instance AIAccelerator : component:Component [
+        base:description "AI Inference Accelerator Board"
+        base:isContainedBy FireDetectionUnit
+    ]
+
+    instance NeuralCore : component:Component [
+        base:description "Neural Processing Core - Fire Detection Network"
+        base:isContainedBy AIAccelerator
+    ]
+
+    instance DetectionRAM : component:Component [
+        base:description "Detection Buffer Memory - 4GB"
+        base:isContainedBy AIAccelerator
+    ]
+
+    instance DetectionInterface : component:Component [
+        base:description "SpaceWire Interface to Payload Processor"
+        base:isContainedBy FireDetectionUnit
+    ]
+
+    instance DetectionPowerConverter : component:Component [
+        base:description "28V to 5V Detection Power Converter"
+        base:isContainedBy FireDetectionUnit
+    ]
+
     instance FireSat : component:Component [
         base:description "FireSat Spacecraft"
     ]

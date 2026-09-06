@@ -465,4 +465,22 @@ description <https://fireforce6.github.io/mission-control/system-analysis/masses
     ref instance components:GPSProcessor : component:PhysicalPart [
         component:mass 0.2^^si:kg
     ]
+
+    // --- Increment: Onboard AI Fire Detection Unit - masses on physical leaves ---
+
+    ref instance components:NeuralCore : component:PhysicalPart [
+        component:mass 0.6^^si:kg
+    ]
+
+    ref instance components:DetectionRAM : component:PhysicalPart [
+        component:mass 0.2^^si:kg
+    ]
+
+    ref instance components:DetectionInterface : component:PhysicalPart [
+        component:mass 0.1^^si:kg
+    ]
+
+    ref instance components:DetectionPowerConverter : component:PhysicalPart [
+        component:mass 0.4^^si:kg
+    ]
 }

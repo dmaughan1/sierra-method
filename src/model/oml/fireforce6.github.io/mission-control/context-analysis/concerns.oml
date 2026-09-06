@@ -46,4 +46,14 @@ description <https://fireforce6.github.io/mission-control/context-analysis/conce
         base:priority "High"
         base:category "Need"
     ]
+
+    // --- Increment: Onboard AI Fire Detection - stakeholder concern ---
+
+    @rdfs:label "Onboard Autonomy Needs"
+    instance OnboardAutonomyNeeds : stakeholder:Concern [
+        base:description "Autonomous onboard fire detection to reduce reliance on ground processing and cut detection-to-alert latency."
+        stakeholder:isExpressedBy stakeholders:CommandCenter
+        base:category "Need"
+        base:priority "High"
+    ]
 }

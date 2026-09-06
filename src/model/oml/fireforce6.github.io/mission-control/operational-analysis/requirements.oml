@@ -61,4 +61,22 @@ description <https://fireforce6.github.io/mission-control/operational-analysis/r
         base:category "L2"
         base:priority "Medium"
     ]
+
+    // --- Increment: Onboard AI Fire Detection requirements ---
+
+    instance R8 : stakeholder:Requirement [
+        base:description "Onboard Fire Detection"
+        base:expression "The system shall autonomously detect fire hotspots onboard the spacecraft using AI inference, without relying on ground processing."
+        stakeholder:isStatedBy stakeholders:CommandCenter
+        base:category "L2"
+        base:priority "High"
+    ]
+
+    instance R9 : stakeholder:Requirement [
+        base:description "Detection Latency"
+        base:expression "The system shall generate a fire detection alert within 5 seconds of image capture."
+        stakeholder:isStatedBy stakeholders:SafetyOfficer
+        base:category "L1"
+        base:priority "Medium"
+    ]
 }
