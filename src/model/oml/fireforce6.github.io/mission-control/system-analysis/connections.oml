@@ -4,6 +4,8 @@ description <https://fireforce6.github.io/mission-control/system-analysis/connec
 
 	uses <https://www.modelware.io/sierra/component#> as component
 
+	uses <https://www.modelware.io/sierra/base#> as base
+
     ref instance components:FireSat [
         component:hasPort FireSat.Command_In
         component:hasPort FireSat.Telemetry_Out
@@ -76,35 +78,54 @@ description <https://fireforce6.github.io/mission-control/system-analysis/connec
         component:hasPort FireDetectionUnit.Power_In
         component:hasPort FireDetectionUnit.Alert_Out
     ]
-    instance FireDetectionUnit.Power_In : component:Port [ component:direction "In" ]
-    instance FireDetectionUnit.Alert_Out : component:Port [ component:direction "Out" ]
+    instance FireDetectionUnit.Power_In : component:Port [
+        base:description "Power input port of the Fire Detection Unit"
+        component:direction "In"
+    ]
+    instance FireDetectionUnit.Alert_Out : component:Port [
+        base:description "Fire alert output port of the Fire Detection Unit"
+        component:direction "Out"
+    ]
 
     ref instance components:AIAccelerator [
         component:hasPort AIAccelerator.Frame_In
         component:hasPort AIAccelerator.Detection_Out
     ]
-    instance AIAccelerator.Frame_In : component:Port [ component:direction "In" ]
-    instance AIAccelerator.Detection_Out : component:Port [ component:direction "Out" ]
+    instance AIAccelerator.Frame_In : component:Port [
+        base:description "Image frame input port of the AI Accelerator"
+        component:direction "In"
+    ]
+    instance AIAccelerator.Detection_Out : component:Port [
+        base:description "Detection result output port of the AI Accelerator"
+        component:direction "Out"
+    ]
 
-    instance RawImagery : component:Signal []
-    instance FireAlert : component:Signal []
+    instance RawImagery : component:Signal [
+        base:description "Raw MWIR imagery frames streamed from the payload to the detector"
+    ]
+    instance FireAlert : component:Signal [
+        base:description "Fire hotspot detection alert produced by the AI Accelerator"
+    ]
 
     relation instance Conn_PayloadData_to_Detector : component:Connection [
         from Payload.Data_Out
         to AIAccelerator.Frame_In
         component:transfers RawImagery
+        base:description "Carries raw imagery from the payload data output to the AI Accelerator"
     ]
 
     relation instance Conn_Detector_to_Alert : component:Connection [
         from AIAccelerator.Detection_Out
         to FireDetectionUnit.Alert_Out
         component:transfers FireAlert
+        base:description "Carries fire alerts from the AI Accelerator to the Fire Detection Unit output"
     ]
 
     relation instance Conn_Power_to_Detector : component:Connection [
         from Platform.Power_Out
         to FireDetectionUnit.Power_In
         component:transfers ElectricalPower
+        base:description "Supplies electrical power from the platform to the Fire Detection Unit"
     ]
 
 }
