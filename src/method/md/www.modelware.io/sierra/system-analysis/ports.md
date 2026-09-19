@@ -17,9 +17,15 @@ Define the **ports** of components — the interaction points through which a co
 exchanges signals, material, or energy with the rest of the system — and declare the
 **direction** in which each port carries an item.
 
-**Focal type.** `component:Port` (a `base:Contained`, `base:Element`). A port is owned by
-exactly one component via `component:hasPort` (its reverse is `component:portOf`, which is
-`inverse functional`, so a port belongs to a single component).
+**Focal type.** `component:Port` — an interaction point of a component, specialized from
+`base:Contained` and `base:Element`.
+
+**Structure.** A port is attached to a component through the `component:hasPort` relation.
+Because `hasPort` is declared `inverse functional`, each port has at most one owning
+component (equivalently, its reverse `component:portOf` is functional). Each port also
+carries an item in a single direction, given by the `component:direction` property, whose
+range is the `component:Direction` scalar — an enumeration whose only permitted values are
+`In` and `Out`.
 
 **Expected content.** For each port: its **direction** (`In` or `Out`) and, optionally, a
 free-text **description**. The owning **component** is shown read-only for context — ports
@@ -28,7 +34,9 @@ each port's direction.
 
 **Rule.** Every port must declare a direction. A port with no direction is under-specified:
 downstream connection and power-flow analyses cannot tell whether it is a source or a sink,
-so the page flags it.
+so the page flags it. The permitted values (`In`, `Out`) are enforced by the
+`component:Direction` scalar itself, so the shape only needs to check that a direction is
+present.
 
 ```table-editor
 ---
