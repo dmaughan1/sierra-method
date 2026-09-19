@@ -1,0 +1,32 @@
+@dc:title "System Ports"
+@dc:description "Ports of Mission Control system components and the direction each carries."
+description <https://fireforce6.github.io/mission-control/system-analysis/ports#> as ports {
+    uses <http://purl.org/dc/elements/1.1/> as dc
+    uses <https://www.modelware.io/sierra/base#> as base
+    uses <https://www.modelware.io/sierra/component#> as component
+    extends <https://fireforce6.github.io/mission-control/system-analysis/components#> as components
+
+    ref instance components:SolarArray [
+        component:hasPort SolarArray.Power_Out
+    ]
+    instance SolarArray.Power_Out : component:Port [
+        base:description "Regulated power output of the solar array"
+        component:direction "Out"
+    ]
+
+    ref instance components:Battery [
+        component:hasPort Battery.Power_Out
+    ]
+    instance Battery.Power_Out : component:Port [
+        base:description "Battery pack power output to the power bus"
+        component:direction "Out"
+    ]
+
+    ref instance components:OBC [
+        component:hasPort OBC.Command_In
+    ]
+    instance OBC.Command_In : component:Port [
+        base:description "Ground command input to the on-board computer"
+        component:direction "In"
+    ]
+}
