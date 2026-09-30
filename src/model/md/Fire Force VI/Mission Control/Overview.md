@@ -69,6 +69,9 @@
   <tr>
     <td>10. <a href="./Operational%20Analysis/Dashboard2.md">View Operations Dashboard2 (WASM Notebook)</a></td>
   </tr>
+  <tr>
+    <td>11. <a href="./Operational%20Analysis/Analysis.md">View Operational Analysis Layer</a></td>
+  </tr>
 </table>
 
 ## System Analysis
