@@ -39,7 +39,7 @@ description <https://fireforce6.github.io/mission-control/context-analysis/objec
     // --- Increment: Onboard AI Fire Detection - objective ---
 
     instance O5 : mission:Objective [
-        base:description "Provide Autonomous Onboard Fire Detection."
+        base:description "Provide autonomous onboard detection of wildfire hotspots."
         mission:isPursuedBy missions:MissionControl
         mission:isDerivedFrom concerns:OnboardAutonomyNeeds
     ]

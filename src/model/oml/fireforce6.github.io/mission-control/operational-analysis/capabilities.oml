@@ -49,7 +49,7 @@ description <https://fireforce6.github.io/mission-control/operational-analysis/c
     // --- Increment: Onboard AI Fire Detection - capability ---
 
     instance C9 : mission:Capability [
-        base:description "Detect fire hotspots onboard using AI inference on MWIR imagery."
+        base:description "Detect fire hotspots onboard using AI inference on mid-wave infrared (MWIR) imagery."
         mission:isRequiredBy objectives:O5
     ]
 }
